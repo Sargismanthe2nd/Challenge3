@@ -23,6 +23,31 @@ function generatePassword() {
   var includeNumerals = confirm("Include numerals?");
   var includeSymbols = confirm("Include symbols?");
 
+  // Build character set based on user input
+  var allCharacters = '';
+
+  if (includeLowercase) {
+    allCharacters += lowercaseCharacters;
+  }
+
+  if (includeUppercase) {
+    allCharacters += uppercaseCharacters;
+  }
+
+  if (includeNumerals) {
+    allCharacters += numerals;
+  }
+
+  if (includeSymbols) {
+    allCharacters += symbols;
+  }
+
+  // Check if at least one character type is selected
+  if (allCharacters === '') {
+    alert("Please select at least one character type.");
+    return '';
+  }
+
   
   // Generate the password
   var generatedPassword = '';
